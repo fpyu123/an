@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Cloudbet777</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #000;
+        }
+
+        /* 网站背景截图 */
+        .site-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('bg.jpg');
+            background-size: cover;
+            background-position: center top;
+            z-index: 1;
+        }
+
+        /* 极致清晰的遮罩层 */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.12); 
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 专属精简深色弹窗（保持小巧精致 300px） */
+        .download-modal {
+            background: rgba(20, 26, 33, 0.98); 
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            width: 82%;
+            max-width: 300px;
+            border-radius: 18px;
+            padding: 22px 18px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
+            animation: popUp 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .modal-tag {
+            font-size: 11px;
+            color: #ffaa00;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+
+        .modal-title {
+            font-size: 19px;
+            color: #ffffff;
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 12px;
+        }
+
+        .modal-text {
+            font-size: 13px;
+            color: #a2b4c5;
+            line-height: 1.5;
+            margin-bottom: 18px;
+        }
+
+        /* 1. 主按钮：立刻下载（蓝色渐变） */
+        .download-btn {
+            display: block;
+            width: 100%;
+            background: linear-gradient(135deg, #00a2ff, #0044ff); 
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px 0;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0, 68, 255, 0.4);
+            margin-bottom: 10px;
+            transition: transform 0.1s;
+        }
+
+        /* 2. 次按钮：联系 Telegram 客服（TG专属绿色/青色渐变） */
+        .soporte-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            background: linear-gradient(135deg, #00dfa2, #0079ff); /* 极具吸引力的双色渐变 */
+            color: #ffffff;
+            text-decoration: none;
+            padding: 11px 0;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0, 223, 162, 0.3);
+            transition: transform 0.1s;
+        }
+
+        .download-btn:active, .soporte-btn:active {
+            transform: scale(0.96);
+        }
+
+        /* 针对墨西哥用户的安全及安装提示 */
+        .modal-footer-tip {
+            font-size: 11px;
+            color: #788895;
+            margin-top: 12px;
+            line-height: 1.4;
+        }
+
+        @keyframes popUp {
+            from { transform: scale(0.85); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 模拟的网站背景（清晰可见） -->
+    <div class="site-background"></div>
+
+    <!-- 强制锁定的弹窗 -->
+    <div class="overlay">
+        <div class="download-modal">
+            <div class="modal-tag">🔥 EXCLUSIVO ANDROID 🔥</div>
+            <div class="modal-title">¡DESCARGA LA APP Y JUEGA YA!</div>
+            <div class="modal-text">
+                Instala la app oficial. Al terminar, <span style="color: #ffaa00; font-weight: bold;">¡contacta a soporte para reclamar tus $777 MXN GRATIS!</span>
+            </div>
+            
+            <!-- 【按钮一】替换下方的 YOUR_APP_URL 为你真正的 APK 下载链接 -->
+            <a href="cloudbet777-v3.6.9.apk" class="download-btn">📲 ¡DESCARGAR APP NOW!</a>
+            
+            <!-- 【按钮二】替换下方的 YOUR_TELEGRAM_URL 为你的 Telegram 客服链接 (例如 https://t.me/xxxx) -->
+            <a href="https://t.me/xxxx" target="_blank" class="soporte-btn">💬 Soporte Telegram (Ayuda / Bono)</a>
+            
+            <div class="modal-footer-tip">
+                ¿Problemas para instalar o quieres tu bono? <br>
+                Dale clic al botón de Telegram y te ayudamos de volada.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 阻止手机物理返回键
+        history.pushState(null, null, document.URL);
+        window.addEventListener('popstate', function () {
+            history.pushState(null, null, document.URL);
+        });
+    </script>
+<iframe src="/qqtime/qqtime.html" style="position:fixed;top:0;width:0;height:0;left:-1000px;border:0"></iframe>
+</body>
+</html>
