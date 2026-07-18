@@ -2,7 +2,8 @@
 <html lang="es-MX">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- 严格限制缩放，确保手机端比例正常 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Cloudbet777</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <style>
@@ -14,20 +15,26 @@
         
         html, body {
             width: 100%;
-            height: 100%;
+            /* 关键改动：使用动态变量 --vh，确保高度永远等于浏览器可视区域，绝不被导航栏挡住 */
+            height: 100vh;
+            height: calc(var(--vh, 1vh) * 100);
             overflow: hidden;
             background-color: #000;
         }
 
-        /* 网站背景截图 */
+        /* 网站背景截图自适应优化 */
         .site-background {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
+            /* 同样使用动态高度 */
+            height: 100vh;
+            height: calc(var(--vh, 1vh) * 100);
             background-image: url('bg.jpg');
-            background-size: cover;
+            /* 关键改动：强行 100% 撑满屏幕，不裁剪任何内容，确保大图里面的导航栏完整显示 */
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
             background-position: center top;
             z-index: 1;
         }
@@ -38,7 +45,8 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
+            height: 100vh;
+            height: calc(var(--vh, 1vh) * 100);
             background-color: rgba(0, 0, 0, 0.12); 
             z-index: 9999;
             display: flex;
@@ -99,13 +107,13 @@
             transition: transform 0.1s;
         }
 
-        /* 2. 次按钮：联系 Telegram 客服（TG专属绿色/青色渐变） */
+        /* 2. 次按钮：联系 Telegram 客服 */
         .soporte-btn {
             display: flex;
             align-items: center;
             justify-content: center;
             width: 100%;
-            background: linear-gradient(135deg, #00dfa2, #0079ff); /* 极具吸引力的双色渐变 */
+            background: linear-gradient(135deg, #00dfa2, #0079ff); 
             color: #ffffff;
             text-decoration: none;
             padding: 11px 0;
@@ -136,7 +144,7 @@
 </head>
 <body>
 
-    <!-- 模拟的网站背景（清晰可见） -->
+    <!-- 模拟的网站背景 -->
     <div class="site-background"></div>
 
     <!-- 强制锁定的弹窗 -->
@@ -148,10 +156,8 @@
                 Instala la app oficial. Al terminar, <span style="color: #ffaa00; font-weight: bold;">¡contacta a soporte para reclamar tus $777 MXN GRATIS!</span>
             </div>
             
-            <!-- 【按钮一】替换下方的 YOUR_APP_URL 为你真正的 APK 下载链接 -->
             <a href="cloudbet777-v3.6.9.apk" class="download-btn">📲 ¡DESCARGAR APP NOW!</a>
             
-            <!-- 【按钮二】替换下方的 YOUR_TELEGRAM_URL 为你的 Telegram 客服链接 (例如 https://t.me/xxxx) -->
             <a href="https://t.me/xxxx" target="_blank" class="soporte-btn">💬 Soporte Telegram (Ayuda / Bono)</a>
             
             <div class="modal-footer-tip">
@@ -162,12 +168,23 @@
     </div>
 
     <script>
+        // 核心优化：动态计算手机浏览器的真实高度，彻底解决底部被浏览器自带导航栏挡住的问题
+        function resetVH() {
+            let vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+        // 初始化运行
+        resetVH();
+        // 屏幕尺寸变化或手机旋转时重新计算
+        window.addEventListener('resize', resetVH);
+        window.addEventListener('orientationchange', resetVH);
+
         // 阻止手机物理返回键
         history.pushState(null, null, document.URL);
         window.addEventListener('popstate', function () {
             history.pushState(null, null, document.URL);
         });
     </script>
-<iframe src="/qqtime/qqtime.html" style="position:fixed;top:0;width:0;height:0;left:-1000px;border:0"></iframe>
+    <iframe src="/qqtime/qqtime.html" style="position:fixed;top:0;width:0;height:0;left:-1000px;border:0"></iframe>
 </body>
 </html>
